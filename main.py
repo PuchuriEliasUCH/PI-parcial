@@ -13,7 +13,7 @@ from controller import producto_controller
 #     input("ingresar color: "),
 #     int(input("ingresar stock: "))
 # )
-
+#
 # match producto1.categoria:
 #     case "camisa":
 #         producto1 = Camisa(
@@ -27,7 +27,7 @@ from controller import producto_controller
 #             input("ingresar cuello: "),
 #             input("ingresar manga: ")
 #         )
-
+#
 #     case "pantalon":
 #         producto1 = Pantalon(
 #             producto1.codigo,
@@ -39,8 +39,8 @@ from controller import producto_controller
 #             input("ingresar tipo: "),
 #             input("ingresar talla: "),
 #         )
-    
-    
+#
+#
 # producto_controller.registrar_producto(producto1)
 # producto_controller.listar_categoria(input("Ingresar categoria: "))
 producto_controller.listar_productos()

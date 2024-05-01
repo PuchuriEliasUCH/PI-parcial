@@ -49,4 +49,7 @@ class Producto:
     
     @color.setter
     def color(self, color):
-        self.__color == color 
+        self.__color == color
+
+    def mensaje(self):
+        print("Nuevo producto registrado")

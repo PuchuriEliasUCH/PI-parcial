@@ -24,3 +24,9 @@ class Camisa(Producto, Verano):
     @manga.setter
     def manga(self, manga):
         self.__manga == manga   
+
+    def aplicar_descuento(self):
+        return self.precio * self.descuento / 100
+
+    def mensaje(self):
+        print("Nuevo producto agregado al catálogo de verano")

@@ -26,7 +26,7 @@ def registrar_producto(producto):
     }
 
     if producto.categoria == 'camisa':
-        prod['descuento'] = producto.cuello
+        prod['descuento'] = producto.descuento
         prod['cuello'] = producto.cuello
         prod['manga'] = producto.manga
     elif producto.categoria == 'pantalon':
@@ -36,4 +36,8 @@ def registrar_producto(producto):
 
     data['productos'].append(prod)
 
+    producto.mensaje()
+
     write_json(data)
+
+

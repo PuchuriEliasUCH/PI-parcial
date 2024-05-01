@@ -21,3 +21,6 @@ class Pantalon(Producto):
     @tipo.setter
     def tipo(self, tipo):
         self.__tipo == tipo
+
+    def mensaje(self):
+        print("Nuevo modelo de pantlón agregado")

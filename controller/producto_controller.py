@@ -10,8 +10,13 @@ from model.pantalon import Pantalon
 def listar_productos():
     print(tabulate(read_data()['productos'], headers="keys", tablefmt='pretty'))
 
-def listar_categoria(cate):
-    print(tabulate(list(filter(lambda x: x['categoria'] == cate, read_data()['productos'])), headers="keys", tablefmt='pretty'))
+def listar_productos_por_categoria(cate):
+    resultados = list(filter(lambda x: x['categoria'] == cate, read_data()['productos']))
+
+    if resultados:
+        print(tabulate(resultados, headers="keys", tablefmt='pretty'))
+    else:
+        print("No tenemos productos en esta categoría")
 
 def registrar_producto(producto):
     data = read_data()
@@ -40,4 +45,6 @@ def registrar_producto(producto):
 
     write_json(data)
 
+def buscar_producto(producto):
+    pass
 

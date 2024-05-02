@@ -20,6 +20,9 @@ class Venta:
         self.__producto == producto
 
     def subtotal(self):
-        return self.__producto * self.__cantidad
+        return self.__producto[0]['precio'] * self.__cantidad
     def aplicar_impuesto(self):
         return self.subtotal() * 0.18
+
+    def total(self):
+        return self.subtotal() + self.aplicar_impuesto()

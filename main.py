@@ -1,3 +1,4 @@
+from model import venta
 from model.venta import Venta
 from model.pantalon import Pantalon
 from model.producto import Producto
@@ -5,7 +6,7 @@ from model.camisa import Camisa
 from model.temporada_verano import Verano
 from controller import producto_controller, venta_controller
 
-from utils.validates import click, validar_codigo
+from utils.validates import click, validar_codigo, validar_existencia
 
 @click.group()
 def main():
@@ -60,5 +61,16 @@ def nuevo_producto(context, codigo, nombre, categoria, precio, color, stock):
 
     producto_controller.registrar_producto(producto1)
 
-main()
+# Registrar Venta
+@main.command()
+@click.option('--codigo',prompt = 'Código del producto', help = "Introducir codigo del producto a comprar",type = click.UNPROCESSED,callback = validar_existencia)
+@click.option('--cantidad',prompt = 'Cantidad de productos', help = "Introducir la cantidad del producto a comprar",type = int)
+@click.pass_context
+def nueva_venta(context, codigo, cantidad):
+    prod = producto_controller.buscar_productos_por_codigo(codigo)
 
+    v = Venta(prod, cantidad)
+    venta_controller.registrar_venta(v)
+
+
+main()

@@ -14,7 +14,7 @@ class Camisa(Producto, Verano):
         return self.__cuello
     
     @cuello.setter
-    def stock(self, cuello):
+    def cuello(self, cuello):
         self.__cuello == cuello   
 
     @property
@@ -26,7 +26,7 @@ class Camisa(Producto, Verano):
         self.__manga == manga   
 
     def aplicar_descuento(self):
-        return self.precio * self.descuento / 100
+        return self.precio * (100 - self.descuento) / 100
 
     def mensaje(self):
         print("Nuevo producto agregado al catálogo de verano")

@@ -1,14 +1,34 @@
 import sys
 from pathlib import Path
 from tabulate import tabulate
+
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from utils.json_manager import read_data, write_json
 from model.producto import Producto
 from model.camisa import Camisa
 from model.pantalon import Pantalon
 
+lista_productos = read_data()['productos']
+
+
 def listar_productos():
-    print(tabulate(read_data()['productos'], headers="keys", tablefmt='pretty'))
+    print(tabulate(lista_productos, headers="keys", tablefmt='pretty'))
+
+
+def buscar_productos_por_codigo(codigo):
+    prod = []
+    for i in lista_productos:
+        if i['codigo'] != int(codigo):
+            continue
+        else:
+            prod.append(i)
+            break
+
+    if len(prod) == 0:
+        print("Este producto no está registrado")
+    else:
+        return prod
+
 
 def listar_productos_por_categoria(cate):
     resultados = list(filter(lambda x: x['categoria'] == cate, read_data()['productos']))
@@ -17,6 +37,7 @@ def listar_productos_por_categoria(cate):
         print(tabulate(resultados, headers="keys", tablefmt='pretty'))
     else:
         print("No tenemos productos en esta categoría")
+
 
 def registrar_producto(producto):
     data = read_data()
@@ -31,13 +52,12 @@ def registrar_producto(producto):
     }
 
     if producto.categoria == 'camisa':
-        prod['descuento'] = producto.descuento
         prod['cuello'] = producto.cuello
         prod['manga'] = producto.manga
+        prod['precio'] = producto.aplicar_descuento()
     elif producto.categoria == 'pantalon':
         prod['tipo'] = producto.tipo
         prod['talla'] = producto.talla
-
 
     data['productos'].append(prod)
 
@@ -45,6 +65,6 @@ def registrar_producto(producto):
 
     write_json(data)
 
+
 def buscar_producto(producto):
     pass
-

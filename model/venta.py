@@ -19,10 +19,16 @@ class Venta:
     def producto(self, producto):
         self.__producto == producto
 
+    # Métodos personalizados
+
+    # Calcular subtotal de la venta
     def subtotal(self):
         return self.__producto[0]['precio'] * self.__cantidad
-    def aplicar_impuesto(self):
-        return self.subtotal() * 0.18
 
+    # Calcular IGV
+    def aplicar_impuesto(self):
+        return round(self.subtotal() * 0.18, 2)
+
+    # Calcular importe total de la venta
     def total(self):
         return self.subtotal() + self.aplicar_impuesto()

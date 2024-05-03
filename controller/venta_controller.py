@@ -4,9 +4,10 @@ from tabulate import tabulate
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from utils.json_manager import read_data, write_json
-from model.venta import Venta
-from model.camisa import Camisa
-from controller.producto_controller import buscar_productos_por_codigo
+
+
+def listar_ventas():
+    print(tabulate(read_data()['ventas'], headers='keys', tablefmt='pretty'))
 
 
 def registrar_venta(venta):

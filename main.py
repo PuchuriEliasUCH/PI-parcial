@@ -72,5 +72,8 @@ def nueva_venta(context, codigo, cantidad):
     v = Venta(prod, cantidad)
     venta_controller.registrar_venta(v)
 
+@main.command()
+def ventas():
+    venta_controller.listar_ventas()
 
 main()

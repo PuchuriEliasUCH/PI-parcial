@@ -4,9 +4,6 @@ from tabulate import tabulate
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from utils.json_manager import read_data, write_json
-from model.producto import Producto
-from model.camisa import Camisa
-from model.pantalon import Pantalon
 
 lista_productos = read_data()['productos']
 
@@ -64,7 +61,3 @@ def registrar_producto(producto):
     producto.mensaje()
 
     write_json(data)
-
-
-def buscar_producto(producto):
-    pass

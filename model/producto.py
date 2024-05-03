@@ -17,7 +17,7 @@ class Producto:
     
     @nombre.setter
     def nombre(self, nombre):
-        self.__codigo == nombre
+        self.__nombre == nombre
 
     @property
     def categoria(self):
@@ -41,7 +41,7 @@ class Producto:
     
     @stock.setter
     def stock(self, stock):
-        self.__codigo == stock
+        self.__stock == stock
         
     @property
     def color(self):

@@ -55,7 +55,7 @@ def nuevo_producto(context, codigo, nombre, categoria, precio, color, stock):
         case "pantalon":
             producto1 = Pantalon(
                 codigo, nombre, categoria, precio, color, stock,
-                input("Ingresa el tipo : "),
+                input("Ingresa el tipo: "),
                 input("ingresar talla: "),
             )
 

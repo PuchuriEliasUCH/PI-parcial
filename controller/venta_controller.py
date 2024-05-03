@@ -26,4 +26,8 @@ def registrar_venta(venta):
 
     data['ventas'].append(v)
 
+    for i in range(len(data['productos'])):
+        if data['productos'][i]['codigo'] == venta.producto[0]['codigo']:
+            data['productos'][i]['stock'] -= venta.cantidad
+
     write_json(data)

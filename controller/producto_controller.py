@@ -1,9 +1,12 @@
 import sys
+import colorama
 from pathlib import Path
 from tabulate import tabulate
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from utils.json_manager import read_data, write_json
+
+colorama.init()
 
 lista_productos = read_data()['productos']
 
@@ -58,6 +61,6 @@ def registrar_producto(producto):
 
     data['productos'].append(prod)
 
-    producto.mensaje()
+    producto.mensaje() 
 
     write_json(data)

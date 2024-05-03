@@ -1,7 +1,7 @@
 from .producto import Producto 
 
 class Pantalon(Producto):
-    def __init__(self, codigo, nombre, categoria, precio, color, talla, tipo, stock):
+    def __init__(self, codigo, nombre, categoria, precio, color, stock, tipo, talla):
         super().__init__(codigo, nombre, categoria, precio, color, stock)
         self.__talla = talla
         self.__tipo = tipo
@@ -11,7 +11,7 @@ class Pantalon(Producto):
         return self.__talla
     
     @talla.setter
-    def tipo(self, talla):
+    def talla(self, talla):
         self.__talla == talla 
 
     @property
